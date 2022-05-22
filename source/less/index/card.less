@@ -1,0 +1,206 @@
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  &:hover .card__link {
+    color: #ffffff;
+  }
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(0 at left center);
+  }
+}
+
+.card__fruits {
+  width: 750px;
+  height: 266px;
+
+  &:hover .card__wrapper::before {
+    background-color: #ceafc8;
+    clip-path: circle(112% at left center);
+    z-index: -1;
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+}
+
+@keyframes slidein {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.card__vegetables {
+  width: 360px;
+  height: 562px;
+
+  &:hover .card__wrapper::before {
+    background-color: #ffd452;
+    clip-path: circle(60% at top center);
+    z-index: -1;
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+}
+
+.card__vegetables .card__wrapper {
+  z-index: 1;
+}
+
+.card__vegetables .card__image {
+  z-index: -1;
+}
+
+.card__vegetables .card__wrapper,
+.card__vegetables .card__image {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.card__vegetables .card__text {
+  padding-right: 20px;
+}
+
+.card__berries {
+  width: 360px;
+  height: 266px;
+
+  &:hover .card__wrapper::before {
+    background-color: #fc8663;
+    clip-path: circle(70% at left center);
+    z-index: -1;
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+}
+
+.card__berries .card__wrapper,
+.card__juices .card__wrapper {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  z-index: 1;
+}
+
+.card__berries .card__image,
+.card__juices .card__image {
+  grid-row: 1;
+  z-index: -1;
+}
+
+.card__juices {
+  width: 360px;
+  height: 266px;
+
+  &:hover .card__wrapper::before {
+    background-color: #88bcb9;
+    clip-path: circle(65% at left center);
+    z-index: -1;
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+}
+
+.card__title {
+  font-family: "Amatic SC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #292b2a;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.card__text {
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.card__link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 47px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  .card:hover & {
+    padding-left: 35px;
+
+    &::before {
+      bottom: -15px;
+      left: 0;
+      width: 47px;
+      height: 47px;
+      border: 2px solid #ffffff;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation-duration: 2s;
+    }
+
+    &::after {
+      bottom: 6px;
+      left: 18px;
+      width: 12px;
+      height: 10px;
+      background-image: url("../img/arrow.svg");
+      background-repeat: no-repeat;
+      animation-duration: 2s;
+    }
+  }
+}
+
+.card__title,
+.card__text,
+.card__link {
+  grid-column: 1 / 3;
+  margin-left: 40px;
+}
+
+.card__fruits .card__link {
+  color: #ceafc8;
+  margin-top: 65px;
+}
+
+.card__vegetables .card__link {
+  margin-top: 50px;
+  color: #ffd452;
+}
+
+.card__berries .card__link {
+  color: #fc8663;
+}
+
+.card__juices .card__link {
+  color: #88bcb9;
+}
+
+.card__image {
+  grid-column: 2 / 3;
+  align-self: end;
+  justify-self: end;
+}
